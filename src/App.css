@@ -1,7 +1,11 @@
+body {
+  background-color: black;
+}
+
 .app-wrapper {
   margin: 0 auto;
   display: grid;
-  width: 1200px;
+  width: 80%;
   grid-template-areas:
     "h h"
     "n c";
@@ -14,17 +18,46 @@
 
 .header {
   grid-area: h;
-  background-color: green;
+  background-color: blue;
+  display: flex;
 }
 
 .header img {
-  width: 20px;
+  margin-top: 5px;
+  width: 80px;
+}
+
+.header h1 {
+  display: block;
+  width: 50%;
+  margin: 7px auto 0px auto;
 }
 
 .nav {
   grid-area: n;
-  background-color: burlywood;
+  background-color: rgba(0, 0, 255, 0.76);
 }
+
+.nav ul {
+  list-style-type: none;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black;
+}
+
+.nav ul li:last-child {
+  margin-bottom: 20px;
+}
+
+.nav ul li {
+  margin-top: 20px;
+}
+
+
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
 
 .content {
   grid-area: c;

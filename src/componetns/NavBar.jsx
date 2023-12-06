@@ -2,20 +2,13 @@ import React from 'react';
 
 const Navbar = () => {
     return <nav className='nav'>
-        <div>
-            <a>Profile</a>
-        </div>
-        <div>
-            <a>Messages</a>
-        </div><div>
-            <a>News</a>
-        </div>
-        <div>
-            <a>Music</a>
-        </div>
-        <div>
-            <a>Settings</a>
-        </div>
+        <ul>
+            <li><a href='#'>Profile</a></li>
+            <li><a href='#'>Messages</a></li>
+            <li><a href='#'>News</a></li>
+            <li><a href='#'>Music</a></li>
+            <li><a href='#'>Settings</a></li>
+        </ul>
     </nav>
 }
 
