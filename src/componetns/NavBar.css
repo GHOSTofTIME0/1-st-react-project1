@@ -1,0 +1,24 @@
+.nav {
+    grid-area: n;
+    background-color: rgba(0, 0, 255, 0.76);
+}
+
+.nav ul {
+    list-style-type: none;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+}
+
+.nav ul li:last-child {
+    margin-bottom: 20px;
+}
+
+.nav ul li {
+    margin-top: 20px;
+}
+
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
