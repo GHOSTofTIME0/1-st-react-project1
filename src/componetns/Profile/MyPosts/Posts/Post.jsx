@@ -11,7 +11,7 @@ const Post = (props) => {
                 <span className="likeBtn">Like <span className="likesCount">{props.post.likesCount}</span></span>
             </div>
         </div>
-        <MyBtn>Удалить пост</MyBtn>
+        <MyBtn onClick={() => props.remove(props.post)}>Удалить пост</MyBtn>
     </div>
 
 }

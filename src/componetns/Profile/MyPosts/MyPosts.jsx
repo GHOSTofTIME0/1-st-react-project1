@@ -14,10 +14,13 @@ const MyPosts = () => {
     ])
 
     const createPost = (newPost) => {
+        console.log(newPost);
         setPosts([...posts, newPost])
     }
 
-
+    const removePost = (post) => {
+        setPosts(posts.filter(p => p.id !== post.id));
+    }
 
 
     return <div>My Posts
@@ -26,7 +29,7 @@ const MyPosts = () => {
             {/* <Post body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, " likesCount="3" />
             <Post body="Текст" likesCount="23" /> */}
             {posts.map(post =>
-                <Post post={post} key={Date.now} />
+                <Post post={post} key={Date.now} remove={removePost} />
             )}
         </div>
     </div>
