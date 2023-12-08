@@ -14,5 +14,14 @@
 
 .profilePostItem {
     border: 1px solid blue;
-    word-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+}
+
+.likeBlock {
+    color: white;
+}
+
+.profilePostItem MyBtn {
+    display: block;
 }

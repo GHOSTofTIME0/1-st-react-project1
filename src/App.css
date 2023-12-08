@@ -3,6 +3,7 @@ body {
 }
 
 .app-wrapper {
+  min-height: 100%;
   margin: 0 auto;
   display: grid;
   width: 80%;
@@ -14,4 +15,9 @@ body {
   grid-template-columns: 2fr 10fr;
   /* grid-gap: 10px; */
 
+}
+
+.content {
+  grid-area: c;
+  background-color: cornflowerblue;
 }
