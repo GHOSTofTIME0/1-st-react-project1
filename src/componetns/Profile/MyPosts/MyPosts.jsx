@@ -13,6 +13,8 @@ const MyPosts = () => {
         { id: 3, body: "daseaseaseaee", likesCount: 13 },
     ])
 
+    const [count, setCount] = useState([posts.length]);
+
     const createPost = (newPost) => {
         console.log(newPost);
         setPosts([...posts, newPost])
@@ -23,15 +25,19 @@ const MyPosts = () => {
     }
 
 
-    return <div>My Posts
+    return <div><h1 className="myPostsHead">My Posts</h1>
         <PostForm create={createPost} />
-        <div className="profilePosts">
-            {/* <Post body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, " likesCount="3" />
-            <Post body="Текст" likesCount="23" /> */}
-            {posts.map(post =>
-                <Post post={post} key={Date.now} remove={removePost} />
-            )}
-        </div>
+        {posts.length !== 0
+            ? <div className="profilePosts">
+                {/* <Post body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, " likesCount="3" />
+                <Post body="Текст" likesCount="23" /> */}
+                {posts.map(post =>
+                    <Post post={post} key={Date.now} remove={removePost} />
+                )}
+            </div>
+
+            : <div className="zeroPostsMsg">Посты не найдены :&#10098;</div>
+        }
     </div>
 }
 

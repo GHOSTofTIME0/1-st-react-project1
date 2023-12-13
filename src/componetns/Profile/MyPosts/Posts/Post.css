@@ -13,9 +13,12 @@
 }
 
 .profilePostItem {
-    border: 1px solid blue;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px 15px 10px 15px;
 }
 
 .likeBlock {

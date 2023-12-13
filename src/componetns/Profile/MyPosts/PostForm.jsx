@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./PostForm.css";
 import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
 const PostForm = ({ create }) => {
@@ -17,7 +18,7 @@ const PostForm = ({ create }) => {
     }
 
     return (
-        <form action="#">
+        <form action="#" className="createPostForm">
             <MyInput
                 type="text"
                 placeholder="название поста"

@@ -1,0 +1,23 @@
+.profileInfo {}
+
+.profileHead {
+    display: flex;
+    gap: 30px;
+    padding: 5px 0 5px 15px;
+}
+
+.profileHead img {
+    width: 50px;
+    height: 60px;
+}
+
+.profileHeadName {
+    font-size: 16px;
+    justify-self: flex-start;
+}
+
+.profileDesc {
+    padding: 15px;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+}
