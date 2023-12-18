@@ -29,8 +29,7 @@ const MyPosts = () => {
         <PostForm create={createPost} />
         {posts.length !== 0
             ? <div className="profilePosts">
-                {/* <Post body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, " likesCount="3" />
-                <Post body="Текст" likesCount="23" /> */}
+
                 {posts.map(post =>
                     <Post post={post} key={Date.now} remove={removePost} />
                 )}
