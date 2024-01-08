@@ -5,13 +5,9 @@ import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
 import PostForm from "./PostForm";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    const [posts, setPosts] = useState([
-        { id: 1, body: "daseaseaseaee", likesCount: 23 },
-        { id: 2, body: "something", likesCount: 10 },
-        { id: 3, body: "daseaseaseaee", likesCount: 13 },
-    ])
+    const [posts, setPosts] = useState(props.posts)
 
     const [count, setCount] = useState([posts.length]);
 

@@ -1,0 +1,13 @@
+.avatarDialog {
+    width: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.dialog a {
+    margin-left: 5%;
+}
+
+.dialog {
+    margin-top: 10%;
+}
