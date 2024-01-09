@@ -15,4 +15,23 @@ let state = {
     },
 }
 
+
+export let addPost = (post) => {
+    let newPost = {
+        id: post.id,
+        body: post.body,
+        likesCount: 0,
+    };
+    state.profilePage.posts.push(newPost);
+}
+
+export let removePost = (postId) => {
+    const updatedPosts = state.profilePage.posts.filter(post => post.id !== postId);
+    state.profilePage.posts = updatedPosts;
+    console.log(state.profilePage.posts);
+}
+
+
+
+
 export default state;

@@ -10,7 +10,7 @@ const Profile = (props) => {
             <img className='profileBG' src='https://bipbap.ru/wp-content/uploads/2018/09/zh.jpg' />
         </div>
         <ProfileInfo />
-        <MyPosts posts={props.posts} />
+        <MyPosts posts={props.posts} addPost={props.addPost} removePost={props.removePost} />
     </div>
 }
 

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./MyPosts.css";
 import Post from "./Posts/Post.jsx";
-import MyInput from "../../../MyTags/MyInput/MyInput";
-import MyBtn from "../../../MyTags/MyBtn/MyBtn";
 import PostForm from "./PostForm";
 
 const MyPosts = (props) => {
@@ -12,7 +10,6 @@ const MyPosts = (props) => {
     const [count, setCount] = useState([posts.length]);
 
     const createPost = (newPost) => {
-        console.log(newPost);
         setPosts([...posts, newPost])
     }
 
@@ -21,13 +18,14 @@ const MyPosts = (props) => {
     }
 
 
+
     return <div><h1 className="myPostsHead">My Posts</h1>
-        <PostForm create={createPost} />
+        <PostForm addPost={props.addPost} create={createPost} />
         {posts.length !== 0
             ? <div className="profilePosts">
 
                 {posts.map(post =>
-                    <Post post={post} key={Date.now} remove={removePost} />
+                    <Post post={post} key={Date.now} remove={removePost} removePostStateJs={props.removePost} />
                 )}
             </div>
 

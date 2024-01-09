@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PostForm.css";
 import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
-const PostForm = ({ create }) => {
+const PostForm = ({ addPost, ...props }) => {
 
     const [post, setPost] = useState({ body: "" });
 
@@ -12,8 +12,8 @@ const PostForm = ({ create }) => {
         const newPost = {
             ...post, id: Date.now(),
         }
-
-        create(newPost);
+        props.create(newPost);
+        addPost(newPost);
         setPost({ body: "" });
     }
 
