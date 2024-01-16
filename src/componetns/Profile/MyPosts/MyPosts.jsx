@@ -20,12 +20,12 @@ const MyPosts = (props) => {
 
 
     return <div><h1 className="myPostsHead">My Posts</h1>
-        <PostForm addPost={props.addPost} create={createPost} />
+        <PostForm dispatch={props.dispatch} create={createPost} />
         {posts.length !== 0
             ? <div className="profilePosts">
 
                 {posts.map(post =>
-                    <Post post={post} key={Date.now} remove={removePost} removePostStateJs={props.removePost} />
+                    <Post post={post} key={Date.now} remove={removePost} dispatch={props.dispatch} />
                 )}
             </div>
 

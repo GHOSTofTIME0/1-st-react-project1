@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PostForm.css";
 import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
-const PostForm = ({ addPost, ...props }) => {
+const PostForm = (props) => {
 
     const [post, setPost] = useState({ body: "" });
 
@@ -10,10 +10,10 @@ const PostForm = ({ addPost, ...props }) => {
         e.preventDefault();
 
         const newPost = {
-            ...post, id: Date.now(),
+            ...post, id: Date.now(), likesCount: 0,
         }
         props.create(newPost);
-        addPost(newPost);
+        props.dispatch({ type: "ADD-POST", arg1: newPost });
         setPost({ body: "" });
     }
 

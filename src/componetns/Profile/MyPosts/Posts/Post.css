@@ -5,11 +5,13 @@
     float: left;
 }
 
+
 .profilePostItem p {
     font-size: 16px;
     display: inline-block;
     margin-left: 10px;
     clear: both;
+    word-break: break-all;
 }
 
 .profilePostItem {
@@ -23,6 +25,20 @@
 
 .likeBlock {
     color: white;
+}
+
+.likeBtn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.likeBtn:hover {
+    color: white;
+    transition: 0.2s;
 }
 
 .profilePostItem MyBtn {

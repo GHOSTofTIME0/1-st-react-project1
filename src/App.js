@@ -7,7 +7,6 @@ import Footer from "./componetns/Footer/Footer";
 import Dialogs from "./componetns/Dialogs/Dialogs";
 import News from './componetns/News/News';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 const App = (props) => {
   return (
     <div className='app-wrapper'>
@@ -18,7 +17,7 @@ const App = (props) => {
         <div className='content'>
           <Routes>
             <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} />} />
-            <Route path="/profile" element={<Profile posts={props.state.profilePage.posts} addPost={props.addPost} removePost={props.removePost} />} />
+            <Route path="/profile" element={<Profile posts={props.state.profilePage.posts} dispatch={props.dispatch} />} />
             <Route path="/news" Component={News} />
           </Routes>
         </div>
