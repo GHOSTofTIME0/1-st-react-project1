@@ -1,0 +1,12 @@
+.inputMessage {
+    display: flex;
+    gap: 10px;
+}
+
+.inputMessage button {
+    height: 2em;
+}
+
+.inputMessage input {
+    height: 1em;
+}

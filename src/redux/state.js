@@ -41,6 +41,14 @@ let store = {
                 else posts[postIndex].likesCount -= 1;
             }
         }
+        else if (action.type === "ADD-MESSAGE") {
+            let newMessage = {
+                id: action.arg1.id,
+                message: action.arg1.message,
+            };
+            this._state.messagesPage.messagesData.push(newMessage);
+            console.log(this._state.messagesPage.messagesData);
+        }
     }
 }
 
