@@ -1,3 +1,11 @@
+import profileReducer from "./profileReducer";
+import dialogReducer from "./dialogReducer";
+
+const ADD_POST = "ADD-POST";
+const REMOVE_POST = "REMOVE-POST";
+const CHANGE_LIKES_COUNT = "CNANGE-LIKES-COUNT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+
 let store = {
     _state: {
         profilePage: {
@@ -20,37 +28,19 @@ let store = {
         return this._state;
     },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id: action.arg1.id,
-                body: action.arg1.body,
-                likesCount: action.arg1.likesCount,
-            };
-            this._state.profilePage.posts.push(newPost);
-        }
-        else if (action.type === "REMOVE-POST") {
-            const updatedPosts = this._state.profilePage.posts.filter(post => post.id !== action.arg1);
-            this._state.profilePage.posts = updatedPosts;
-        }
-        else if (action.type === "CNANGE-LIKES-COUNT") {
-            const posts = this.getState().profilePage.posts;
-            const postIndex = posts.findIndex(post => post.id === action.arg2);
-
-            if (postIndex !== -1) {
-                if (action.arg1) posts[postIndex].likesCount += 1;
-                else posts[postIndex].likesCount -= 1;
-            }
-        }
-        else if (action.type === "ADD-MESSAGE") {
-            let newMessage = {
-                id: action.arg1.id,
-                message: action.arg1.message,
-            };
-            this._state.messagesPage.messagesData.push(newMessage);
-            console.log(this._state.messagesPage.messagesData);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage.messagesData = dialogReducer(this._state.messagesPage, action);
     }
 }
+
+export const addPostActionCreator = (post) => ({ type: ADD_POST, arg1: post });
+
+export const removePostActionCreator = (id) => ({ type: REMOVE_POST, arg1: id });
+
+export const changeLikesCountActionCreator = (isLiked, id) => ({ type: CHANGE_LIKES_COUNT, arg1: isLiked, arg2: id });
+
+export const addMessageActionCreator = (message) => ({ type: ADD_MESSAGE, arg1: message });
+
 
 export default store;
 

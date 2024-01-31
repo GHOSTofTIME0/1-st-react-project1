@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./PostForm.css";
 import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
+import { addPostActionCreator } from "../../../redux/state";
 const PostForm = (props) => {
 
     const [post, setPost] = useState({ body: "" });
@@ -13,7 +14,8 @@ const PostForm = (props) => {
             ...post, id: Date.now(), likesCount: 0,
         }
         props.create(newPost);
-        props.dispatch({ type: "ADD-POST", arg1: newPost });
+        let action = addPostActionCreator(newPost);
+        props.dispatch(action);
         setPost({ body: "" });
     }
 

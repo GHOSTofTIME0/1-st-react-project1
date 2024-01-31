@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyInput from "../../../MyTags/MyInput/MyInput";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
+import { addMessageActionCreator } from "../../../redux/state";
 
 const MessageForm = (props) => {
 
@@ -13,7 +14,7 @@ const MessageForm = (props) => {
             ...message, id: Date.now(),
         }
         props.addMessage(newMessage);
-        props.dispatch({ type: "ADD-MESSAGE", arg1: newMessage });
+        props.dispatch(addMessageActionCreator(newMessage));
         setMessage({ message: "" });
     }
 

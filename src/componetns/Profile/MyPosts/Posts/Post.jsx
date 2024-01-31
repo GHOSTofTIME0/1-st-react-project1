@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Post.css";
 import MyBtn from "../../../../MyTags/MyBtn/MyBtn";
+import { removePostActionCreator, changeLikesCountActionCreator } from "../../../../redux/state";
 
 const Post = (props) => {
 
     let removePost = () => {
         props.remove(props.post);
-        props.dispatch({ type: "REMOVE-POST", arg1: props.post.id });
+        props.dispatch(removePostActionCreator(props.post.id));
     }
 
     const [likes, setLike] = useState(props.post.likesCount);
@@ -18,7 +19,7 @@ const Post = (props) => {
         }
         else setLike(likes - 1);
         setLiked(!liked);
-        props.dispatch({ type: "CNANGE-LIKES-COUNT", arg1: liked, arg2: props.post.id });
+        props.dispatch(changeLikesCountActionCreator(liked, props.post.id));
     }
 
     return <div className="profilePostItem">

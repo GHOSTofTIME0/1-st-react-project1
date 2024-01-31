@@ -11,7 +11,6 @@ const Dialogs = (props) => {
     const [messagesData, setMessage] = useState(props.messagesData);
     let addMessage = (newMessage) => {
         setMessage([...messagesData, newMessage]);
-        console.log(messagesData);
     }
 
     return (
