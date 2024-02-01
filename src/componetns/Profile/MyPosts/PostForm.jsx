@@ -13,7 +13,6 @@ const PostForm = (props) => {
         const newPost = {
             ...post, id: Date.now(), likesCount: 0,
         }
-        props.create(newPost);
         let action = addPostActionCreator(newPost);
         props.dispatch(action);
         setPost({ body: "" });

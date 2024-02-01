@@ -29,7 +29,16 @@ let store = {
     },
     dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
-        this._state.messagesPage.messagesData = dialogReducer(this._state.messagesPage, action);
+        this._state.messagesPage.messagesData = dialogReducer(this._state.messagesPage.messagesData, action);
+        this._callSubscriber(this._state);
+    },
+
+    _callSubscriber() {
+        console.log("state changed");
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer;
     }
 }
 

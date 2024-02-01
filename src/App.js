@@ -16,7 +16,7 @@ const App = (props) => {
         {/* <Profile /> */}
         <div className='content'>
           <Routes>
-            <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} dispatch={props.dispatch} />} />
+            <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.dialogPage.messagesPage.dialogsData} messagesData={props.state.dialogPage.messagesPage.messagesData} dispatch={props.dispatch} />} />
             <Route path="/profile" element={<Profile posts={props.state.profilePage.posts} dispatch={props.dispatch} />} />
             <Route path="/news" Component={News} />
           </Routes>
@@ -27,3 +27,4 @@ const App = (props) => {
 }
 
 export default App;
+

@@ -13,7 +13,6 @@ const MessageForm = (props) => {
         const newMessage = {
             ...message, id: Date.now(),
         }
-        props.addMessage(newMessage);
         props.dispatch(addMessageActionCreator(newMessage));
         setMessage({ message: "" });
     }
