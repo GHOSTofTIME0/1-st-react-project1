@@ -6,7 +6,7 @@ import { removePostActionCreator, changeLikesCountActionCreator } from "../../..
 const Post = (props) => {
 
     let removePost = () => {
-        props.dispatch(removePostActionCreator(props.post.id));
+        props.dispatch.removePost(props.post.id);
     }
 
     const [likes, setLike] = useState(props.post.likesCount);
@@ -14,7 +14,7 @@ const Post = (props) => {
 
     let changeLikesCount = () => { // тута баг. Не отрисовывается изменение лайков
         setLiked(!liked);
-        props.dispatch(changeLikesCountActionCreator(liked, props.post.id));
+        props.dispatch.changeLikesCount(liked, props.post.id);
     }
 
     return <div className="profilePostItem">

@@ -6,15 +6,14 @@ import MessageItem from "./MessageItem/MessageItem";
 import MessageForm from "./MessageForm/MessageForm";
 
 const Dialogs = (props) => {
-
     return (
         <div className="dialogsBlock">
 
             <div className="dialogsItems">
                 {
-                    props.dialogsData.length !== 0
+                    props.dialogsPage.dialogsData.length !== 0
                         ?
-                        props.dialogsData.map(dialog =>
+                        props.dialogsPage.dialogsData.map(dialog =>
                             <DialogItem dialog={dialog} />
                         )
                         : <div>Пустота</div>
@@ -22,16 +21,16 @@ const Dialogs = (props) => {
             </div>
 
             <div className="messages">
-                {props.messagesData.length !== 0
+                {props.dialogsPage.messagesData.length !== 0
                     ?
-                    props.messagesData.map(message =>
+                    props.dialogsPage.messagesData.map(message =>
                         <MessageItem message={message} />
                     )
 
                     : <div>пустота</div>
                 }
                 <div className="inputMessage">
-                    <MessageForm dispatch={props.dispatch} />
+                    <MessageForm dispatch={props.addMessage} />
                 </div>
             </div>
         </div >

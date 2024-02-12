@@ -23,7 +23,6 @@ const dialogReducer = (state = initialState, action) => {
                 id: action.arg1.id,
                 message: action.arg1.message,
             };
-            console.log(state);
             newState.messagesPage.messagesData.push(newMessage);
             return newState;
         default: return state;

@@ -13,7 +13,6 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 
     let newState = structuredClone(state);
-    console.log(action);
     switch (action.type) {
         case ADD_POST:
             let newPost = {

@@ -4,17 +4,13 @@ import Post from "./Posts/Post.jsx";
 import PostForm from "./PostForm";
 
 const MyPosts = (props) => {
-
-
-
-
     return <div><h1 className="myPostsHead">My Posts</h1>
-        <PostForm dispatch={props.dispatch} />
+        <PostForm dispatch={props.addPost} />
         {props.posts.length !== 0
             ? <div className="profilePosts">
 
                 {props.posts.map(post =>
-                    <Post post={post} key={Date.now} dispatch={props.dispatch} />
+                    <Post post={post} key={Date.now} dispatch={props.postMethods} />
                 )}
             </div>
 
