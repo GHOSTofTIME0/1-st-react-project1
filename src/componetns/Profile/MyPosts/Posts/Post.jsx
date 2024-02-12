@@ -15,7 +15,6 @@ const Post = (props) => {
     let changeLikesCount = () => { // тута баг. Не отрисовывается изменение лайков
         setLiked(!liked);
         props.dispatch(changeLikesCountActionCreator(liked, props.post.id));
-        console.log(props.post.likesCount);
     }
 
     return <div className="profilePostItem">

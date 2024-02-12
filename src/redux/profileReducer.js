@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+
 const ADD_POST = "ADD-POST";
 const REMOVE_POST = "REMOVE-POST";
 const CHANGE_LIKES_COUNT = "CNANGE-LIKES-COUNT";
@@ -11,7 +13,7 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 
     let newState = structuredClone(state);
-
+    console.log(action);
     switch (action.type) {
         case ADD_POST:
             let newPost = {
