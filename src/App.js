@@ -4,10 +4,10 @@ import Header from './componetns/Header/Header';
 import Navbar from './componetns/NavBar/NavBar';
 import Profile from "./componetns/Profile/Profile";
 import Footer from "./componetns/Footer/Footer";
-import Dialogs from "./componetns/Dialogs/Dialogs";
+import DialogsContainer from './componetns/Dialogs/DialogsContainer/DialogsContainer';
+import UsersContainer from './componetns/Users/UsersContainer';
 import News from './componetns/News/News';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DialogsContainer from './componetns/Dialogs/DialogsContainer/DialogsContainer';
 const App = (props) => {
   return (
     <div className='app-wrapper'>
@@ -20,6 +20,7 @@ const App = (props) => {
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/profile" element={<Profile posts={props.state.profilePage.posts} dispatch={props.dispatch} />} />
             <Route path="/news" Component={News} />
+            <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </div>
         <Footer />

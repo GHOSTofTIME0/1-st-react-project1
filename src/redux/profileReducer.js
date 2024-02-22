@@ -11,7 +11,6 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-
     let newState = structuredClone(state);
     switch (action.type) {
         case ADD_POST:
@@ -34,11 +33,18 @@ const profileReducer = (state = initialState, action) => {
                 if (action.arg1) posts[postIndex].likesCount += 1;
                 else posts[postIndex].likesCount -= 1;
             }
+            console.log(posts[postIndex].likesCount);
             return newState;
         default: return state;
     }
 
 
 }
+
+export const addPostActionCreator = (post) => ({ type: ADD_POST, arg1: post });
+
+export const removePostActionCreator = (id) => ({ type: REMOVE_POST, arg1: id });
+
+export const changeLikesCountActionCreator = (isLiked, id) => ({ type: CHANGE_LIKES_COUNT, arg1: isLiked, arg2: id });
 
 export default profileReducer;

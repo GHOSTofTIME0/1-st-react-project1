@@ -4,17 +4,15 @@ import MyBtn from "../../../../MyTags/MyBtn/MyBtn";
 import { removePostActionCreator, changeLikesCountActionCreator } from "../../../../redux/state";
 
 const Post = (props) => {
-
     let removePost = () => {
         props.dispatch.removePost(props.post.id);
     }
 
-    const [likes, setLike] = useState(props.post.likesCount);
     const [liked, setLiked] = useState(true);
 
     let changeLikesCount = () => { // тута баг. Не отрисовывается изменение лайков
-        setLiked(!liked);
         props.dispatch.changeLikesCount(liked, props.post.id);
+        setLiked(!liked);
     }
 
     return <div className="profilePostItem">
@@ -22,7 +20,7 @@ const Post = (props) => {
             <img src="https://hypixel.net/attachments/nero_claudius_navidad___padoru_padoru_by_alexzer09_dbwh40a-png.2207884/" alt="" />
             <p>{props.post.body}</p>
             <div className="likeBlock">
-                <button className="likeBtn" onClick={changeLikesCount}> Like <span className="likesCount">{likes}</span></button>
+                <button className="likeBtn" onClick={changeLikesCount}> Like <span className="likesCount">{props.post.likesCount}</span></button>
             </div>
         </div>
         <MyBtn onClick={removePost}>Удалить пост</MyBtn>

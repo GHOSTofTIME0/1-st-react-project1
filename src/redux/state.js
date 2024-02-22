@@ -42,13 +42,7 @@ let store = {
     }
 }
 
-export const addPostActionCreator = (post) => ({ type: ADD_POST, arg1: post });
 
-export const removePostActionCreator = (id) => ({ type: REMOVE_POST, arg1: id });
-
-export const changeLikesCountActionCreator = (isLiked, id) => ({ type: CHANGE_LIKES_COUNT, arg1: isLiked, arg2: id });
-
-export const addMessageActionCreator = (message) => ({ type: ADD_MESSAGE, arg1: message });
 
 
 export default store;

@@ -1,0 +1,26 @@
+.userName {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.userText {
+    display: flex;
+    gap: 30px;
+}
+
+.user {
+    display: flex;
+    border-top: 2px solid rgb(4, 1, 180);
+    border-bottom: 2px solid rgb(4, 1, 180);
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.userAva img {
+    width: 80px;
+    margin-top: 15px;
+}
