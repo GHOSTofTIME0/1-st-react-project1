@@ -1,6 +1,7 @@
 import React from "react";
 import "./User.css";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
+import axios from "axios";
 const User = (props) => {
 
     const follow = (e) => {
@@ -26,7 +27,7 @@ const User = (props) => {
                     <p className="userDescription">{props.user.description}</p>
                 </div>
             </div>
-            {props.user.isFollowed === false
+            {props.user.followed === false
                 ? <MyBtn onClick={follow}>Подписаться</MyBtn>
                 : <MyBtn onClick={unFollow}>Отписаться</MyBtn>
             }

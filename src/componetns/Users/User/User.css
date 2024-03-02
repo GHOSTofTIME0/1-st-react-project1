@@ -18,9 +18,12 @@
     margin-bottom: 10px;
     padding: 10px;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .userAva img {
     width: 80px;
+    height: 80px;
     margin-top: 15px;
+    border: 1px solid white;
 }
