@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import DialogItem from "./DIalogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
 import MessageForm from "./MessageForm/MessageForm";
-
+import Messages from "./Messages/Messages";
 const Dialogs = (props) => {
     return (
         <div className="dialogsBlock">
@@ -20,19 +20,7 @@ const Dialogs = (props) => {
                 }
             </div>
 
-            <div className="messages">
-                {props.dialogsPage.messagesData.length !== 0
-                    ?
-                    props.dialogsPage.messagesData.map(message =>
-                        <MessageItem message={message} />
-                    )
-
-                    : <div>пустота</div>
-                }
-                <div className="inputMessage">
-                    <MessageForm dispatch={props.addMessage} />
-                </div>
-            </div>
+            <Messages messagesData={props.dialogsPage.messagesData} dispatch={props.addMessage} />
         </div >
     )
 }

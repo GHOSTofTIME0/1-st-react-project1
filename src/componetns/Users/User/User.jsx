@@ -2,6 +2,7 @@ import React from "react";
 import "./User.css";
 import MyBtn from "../../../MyTags/MyBtn/MyBtn";
 import axios from "axios";
+import userAva from "../../../IMG/userAva.jpeg"
 const User = (props) => {
 
     const follow = (e) => {
@@ -20,7 +21,7 @@ const User = (props) => {
         <div className="user">
             <div className="userText">
                 <div className="userAva">
-                    <img src={props.user.imgURL} alt="" />
+                    <img src={props.user.photos.small != null ? props.user.photos.small : userAva} alt="" />
                 </div>
                 <div className="userInfo">
                     <h1 className="userName">{props.user.name}</h1>
