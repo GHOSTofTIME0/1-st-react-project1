@@ -18,6 +18,11 @@ const Users = (props) => {
         pages.push(i);
     }
 
+    let curP = props.currentPage;
+    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
+    let curPL = curP + 5;
+    let slicedPages = pages.slice(curPF, curPL);
+
     let changePage = (currentPage) => {
         props.setCurrentPage(currentPage);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${props.pageSize}`)
@@ -30,7 +35,7 @@ const Users = (props) => {
         <div className="usersBlock">
 
             <div>
-                {pages.map(p =>
+                {slicedPages.map(p =>
                     <span className={props.currentPage == p && "selectedPage"} onClick={() => changePage(p)}>{p}</span>
                 )}
             </div>
