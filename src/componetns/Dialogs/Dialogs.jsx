@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./Dialogs.css";
 import { NavLink } from "react-router-dom";
 import DialogItem from "./DIalogItem/DialogItem";
-import MessageItem from "./MessageItem/MessageItem";
-import MessageForm from "./MessageForm/MessageForm";
 import Messages from "./Messages/Messages";
 const Dialogs = (props) => {
+    debugger;
     return (
         <div className="dialogsBlock">
 

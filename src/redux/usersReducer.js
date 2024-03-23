@@ -5,8 +5,13 @@ const SET_USERS = "SET-USERS";
 const UNFOLLOW_USER = "UNFOLLOW-USER";
 const FOLLOW_USER = "FOLLOW-USER";
 const SHOW_MORE_USERS = "SHOW-MORE-USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 let initialState = {
     users: [],
+    pageSize: 5,
+    totalCount: 0,
+    currentPage: 1,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -34,9 +39,14 @@ const usersReducer = (state = initialState, action) => {
             return newState;
         }
         case SET_USERS: {
-            debugger;
             console.log(action.arg1);
-            return { ...state, users: [...state.users, ...action.arg1] };
+            return { ...state, users: action.arg1 };
+        }
+        case SET_CURRENT_PAGE: {
+            return { ...state, currentPage: action.currentPage };
+        }
+        case SET_TOTAL_COUNT: {
+            return { ...state, totalCount: action.totalCount };
         }
         default: return newState;
     }
@@ -46,5 +56,7 @@ export const followActionCreator = (userId) => ({ type: FOLLOW_USER, arg1: userI
 export const unFollowActionCreator = (userId) => ({ type: UNFOLLOW_USER, arg1: userId });
 export const showMoreUsersActionCreator = () => ({ type: SHOW_MORE_USERS });
 export const setUsersActionCreator = (users) => ({ type: SET_USERS, arg1: users });
+export const setCurrentPageActionCreator = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage: currentPage });
+export const setTotalCountActionCreator = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount: totalCount });
 
 export default usersReducer;
