@@ -3,6 +3,7 @@ import "./MyPosts.css";
 import Post from "./Posts/Post.jsx";
 import PostForm from "./PostForm";
 
+
 const MyPosts = (props) => {
     return <div><h1 className="myPostsHead">My Posts</h1>
         <PostForm dispatch={props.addPost} />
@@ -10,7 +11,7 @@ const MyPosts = (props) => {
             ? <div className="profilePosts">
 
                 {props.posts.map(post =>
-                    <Post post={post} key={Date.now} dispatch={props.postMethods} />
+                    <Post post={post} key={Date.now} dispatch={props.postMethods} photoPosts={props.photoPosts} />
                 )}
             </div>
 

@@ -1,13 +1,14 @@
-import { act } from "react-dom/test-utils";
-
 const ADD_POST = "ADD-POST";
 const REMOVE_POST = "REMOVE-POST";
 const CHANGE_LIKES_COUNT = "CNANGE-LIKES-COUNT";
-
+const SET_USER_PROFILE = "SET_USER_PROFILE";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
 let initialState = {
     posts: [{ id: 1, body: "daseaseaseaee", likesCount: 23 },
     { id: 2, body: "something", likesCount: 10 },
     { id: 3, body: "daseaseaseaee", likesCount: 13 },],
+    profile: null,
+    isFetching: false,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -35,16 +36,26 @@ const profileReducer = (state = initialState, action) => {
             }
             console.log(posts[postIndex].likesCount);
             return newState;
+        case SET_USER_PROFILE: {
+            return { ...state, profile: action.profile };
+        }
+        case SET_IS_FETCHING: {
+            return { ...state, isFetching: action.isFetching };
+        }
         default: return state;
     }
 
 
 }
 
-export const addPostActionCreator = (post) => ({ type: ADD_POST, arg1: post });
+export const addPost = (post) => ({ type: ADD_POST, arg1: post });
 
-export const removePostActionCreator = (id) => ({ type: REMOVE_POST, arg1: id });
+export const removePost = (id) => ({ type: REMOVE_POST, arg1: id });
 
-export const changeLikesCountActionCreator = (isLiked, id) => ({ type: CHANGE_LIKES_COUNT, arg1: isLiked, arg2: id });
+export const changeLikesCount = (isLiked, id) => ({ type: CHANGE_LIKES_COUNT, arg1: isLiked, arg2: id });
+
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+
+export const setIsFetching = (isFetching) => ({ type: SET_IS_FETCHING, isFetching });
 
 export default profileReducer;

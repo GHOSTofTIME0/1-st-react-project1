@@ -2,7 +2,7 @@ import React from "react";
 import User from "./User/User";
 import axios from "axios";
 import "./Users.css";
-import loading from "./../../IMG/loading.gif";
+import Preloader from "../Preloader";
 const Users = (props) => {
     if (props.users.length === 0) {
         props.setIsFetching(true);
@@ -39,7 +39,7 @@ const Users = (props) => {
 
     return (
         <div className="usersBlock">
-            {props.isFetching ? <img src={loading} /> : null}
+            {props.isFetching ? <Preloader /> : null}
 
 
             <div>
@@ -52,7 +52,7 @@ const Users = (props) => {
                 props.users.length !== 0
                     ? <div className="usersContainer">
                         {props.users.map(user =>
-                            <User user={user} key={Date.now} dispatch={props.usersMethods} />)}
+                            <User user={user} key={Date.now} follow={props.follow} unFollow={props.unFollow} />)}
                     </div>
 
                     : <div className="zeroUsersMsg">Юзеров нема</div>

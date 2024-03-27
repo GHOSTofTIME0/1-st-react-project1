@@ -8,6 +8,7 @@ import DialogsContainer from './componetns/Dialogs/DialogsContainer/DialogsConta
 import UsersContainer from './componetns/Users/UsersContainer';
 import News from './componetns/News/News';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProfileContainer from './componetns/Profile/ProfileContainer';
 const App = (props) => {
   return (
     <div className='app-wrapper'>
@@ -18,7 +19,7 @@ const App = (props) => {
         <div className='content'>
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
-            <Route path="/profile" element={<Profile posts={props.state.profilePage.posts} dispatch={props.dispatch} />} />
+            <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path="/news" Component={News} />
             <Route path="/users" element={<UsersContainer />} />
           </Routes>
