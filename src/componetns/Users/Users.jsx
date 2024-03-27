@@ -27,6 +27,7 @@ const Users = (props) => {
         props.setCurrentPage(currentPage);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${props.pageSize}`)
             .then(data => {
+                console.log(data);
                 props.setUsers(data.data.items);
             })
     }
