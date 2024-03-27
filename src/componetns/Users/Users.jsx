@@ -2,12 +2,15 @@ import React from "react";
 import User from "./User/User";
 import axios from "axios";
 import "./Users.css";
+import loading from "./../../IMG/loading.gif";
 const Users = (props) => {
     if (props.users.length === 0) {
+        props.setIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.currentPage}&count=${props.pageSize}`)
             .then(data => {
                 props.setUsers(data.data.items);
                 props.setTotalCount(data.data.totalCount);
+                props.setIsFetching(false);
             });
     }
 
@@ -24,16 +27,20 @@ const Users = (props) => {
     let slicedPages = pages.slice(curPF, curPL);
 
     let changePage = (currentPage) => {
+        props.setIsFetching(true);
         props.setCurrentPage(currentPage);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${props.pageSize}`)
             .then(data => {
                 console.log(data);
                 props.setUsers(data.data.items);
+                props.setIsFetching(false);
             })
     }
 
     return (
         <div className="usersBlock">
+            {props.isFetching ? <img src={loading} /> : null}
+
 
             <div>
                 {slicedPages.map(p =>
