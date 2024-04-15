@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Post.css";
 import MyBtn from "../../../../MyTags/MyBtn/MyBtn";
 import Preloader from "../../../Preloader";
+import userAva from "../../../../IMG/userAva.jpeg";
 
 const Post = (props) => {
     let removePost = () => {
@@ -15,13 +16,10 @@ const Post = (props) => {
         setLiked(!liked);
     }
 
-    if (!props.photoPosts) {
-        return <Preloader />
-    }
 
     return <div className="profilePostItem">
         <div className="profilePostItemContent">
-            <img src={props.photoPosts} alt="" />
+            <img src={props.photoPosts !== null ? props.photoPosts : userAva} alt="" />
             <p>{props.post.body}</p>
             <div className="likeBlock">
                 <button className="likeBtn" onClick={changeLikesCount}> Like <span className="likesCount">{props.post.likesCount}</span></button>

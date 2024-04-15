@@ -1,19 +1,18 @@
 import React from 'react';
 import './App.css';
-import Header from './componetns/Header/Header';
 import Navbar from './componetns/NavBar/NavBar';
-import Profile from "./componetns/Profile/Profile";
 import Footer from "./componetns/Footer/Footer";
 import DialogsContainer from './componetns/Dialogs/DialogsContainer/DialogsContainer';
 import UsersContainer from './componetns/Users/UsersContainer';
 import News from './componetns/News/News';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProfileContainer from './componetns/Profile/ProfileContainer';
+import HeaderContainer from './componetns/Header/HeaderContainer';
 const App = (props) => {
   return (
     <div className='app-wrapper'>
       <BrowserRouter>
-        <Header />
+        <HeaderContainer />
         <Navbar />
         {/* <Profile /> */}
         <div className='content'>

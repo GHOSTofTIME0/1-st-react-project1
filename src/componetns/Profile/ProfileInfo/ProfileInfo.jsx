@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProfileInfo.css";
 import preloader from "../../../IMG/loading.gif";
+import userAva from "../../../IMG/userAva.jpeg";
 const ProfileInfo = (props) => {
 
     if (!props.profile) {
@@ -10,7 +11,7 @@ const ProfileInfo = (props) => {
     return (
         <div className='profileInfo'>
             <div className='profileHead'>
-                <img src={props.profile.photos.small} alt="" />
+                <img src={props.profile.photos.small !== null ? props.profile.photos.large : userAva} alt="" />
                 <div className="profileHeadInfo">
                     <h1 className='profileHeadName'>{props.profile.fullName}</h1>
                 </div>
