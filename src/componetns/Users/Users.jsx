@@ -1,17 +1,16 @@
 import React from "react";
 import User from "./User/User";
-import axios from "axios";
 import "./Users.css";
 import Preloader from "../Preloader";
+import { getUsers } from "../../API/api";
 const Users = (props) => {
     if (props.users.length === 0) {
         props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.currentPage}&count=${props.pageSize}`)
-            .then(data => {
-                props.setUsers(data.data.items);
-                props.setTotalCount(data.data.totalCount);
-                props.setIsFetching(false);
-            });
+        getUsers(props.currentPage, props.pageSize).then(data => {
+            props.setUsers(data.items);
+            props.setTotalCount(data.totalCount);
+            props.setIsFetching(false);
+        });
     }
 
     let pagesCount = Math.ceil(props.totalCount / props.pageSize);
@@ -29,12 +28,11 @@ const Users = (props) => {
     let changePage = (currentPage) => {
         props.setIsFetching(true);
         props.setCurrentPage(currentPage);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${props.pageSize}`)
-            .then(data => {
-                console.log(data);
-                props.setUsers(data.data.items);
-                props.setIsFetching(false);
-            })
+        getUsers(currentPage, props.pageSize).then(data => {
+            console.log(data);
+            props.setUsers(data.items);
+            props.setIsFetching(false);
+        })
     }
 
     return (
@@ -52,7 +50,7 @@ const Users = (props) => {
                 props.users.length !== 0
                     ? <div className="usersContainer">
                         {props.users.map(user =>
-                            <User user={user} key={Date.now} follow={props.follow} unFollow={props.unFollow} />)}
+                            <User user={user} key={Date.now} follow={props.follow} unFollow={props.unFollow} followingProgress={props.followingProgress} setFollowingProgress={props.setFollowingProgress} />)}
                     </div>
 
                     : <div className="zeroUsersMsg">Юзеров нема</div>

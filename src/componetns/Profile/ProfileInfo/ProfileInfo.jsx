@@ -3,7 +3,6 @@ import "./ProfileInfo.css";
 import preloader from "../../../IMG/loading.gif";
 import userAva from "../../../IMG/userAva.jpeg";
 const ProfileInfo = (props) => {
-
     if (!props.profile) {
         return <img src={preloader} />;
     }

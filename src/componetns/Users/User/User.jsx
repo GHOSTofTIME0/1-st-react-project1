@@ -4,18 +4,30 @@ import MyBtn from "../../../MyTags/MyBtn/MyBtn";
 import axios from "axios";
 import userAva from "../../../IMG/userAva.jpeg"
 import { NavLink } from "react-router-dom";
+import { followUser, unFollowUser } from "../../../API/api";
 const User = (props) => {
 
     const follow = (e) => {
         e.preventDefault();
+        props.setFollowingProgress(true, props.user.id);
+        followUser(props.user.id).then(data => {
+            if (data.resultCode === 0) {
+                props.follow(props.user.id);
+                props.setFollowingProgress(false, props.user.id);
+            }
+        })
 
-        props.follow(props.user.id);
     }
 
     const unFollow = (e) => {
+        props.setFollowingProgress(true, props.user.id);
         e.preventDefault();
-
-        props.unFollow(props.user.id);
+        unFollowUser(props.user.id).then(data => {
+            if (data.resultCode === 0) {
+                props.unFollow(props.user.id);
+                props.setFollowingProgress(false, props.user.id);
+            }
+        })
     }
 
     return (
@@ -32,8 +44,8 @@ const User = (props) => {
                 </div>
             </NavLink>
             {props.user.followed === false
-                ? <MyBtn onClick={follow}>Подписаться</MyBtn>
-                : <MyBtn onClick={unFollow}>Отписаться</MyBtn>
+                ? <MyBtn disabled={props.followingProgress.some(id => id === props.user.id)} onClick={follow}>Подписаться</MyBtn>
+                : <MyBtn disabled={props.followingProgress.some(id => id === props.user.id)} onClick={unFollow}>Отписаться</MyBtn>
             }
         </div>
     )

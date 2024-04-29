@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import DialogItem from "./DIalogItem/DialogItem";
 import Messages from "./Messages/Messages";
 const Dialogs = (props) => {
-    debugger;
     return (
         <div className="dialogsBlock">
 

@@ -1,6 +1,5 @@
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_IS_FETCHING = "SET_IS_FETCHING"
-debugger;
 let initialState = {
     id: null,
     email: null,
@@ -16,7 +15,6 @@ const authReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_USER_DATA:
-            debugger;
             return { ...state, ...action.data, isAuth: true };
         case SET_IS_FETCHING: {
             return { ...state, isFetching: action.isFetching };
